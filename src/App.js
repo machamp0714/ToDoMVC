@@ -1,7 +1,12 @@
 import React from "react";
-import Header from "./components/Header";
-import "todomvc-app-css/index.css";
+import AddTodo from "./containers/AddTodo";
+import TodoList from "./components/TodoList";
 
-const App = () => <Header />;
+const App = () => (
+  <div>
+    <AddTodo />
+    <TodoList />
+  </div>
+);
 
 export default App;
