@@ -16,12 +16,17 @@ class AddTodo extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.addTodo(this.state.text);
+    this.setState({ text: "" });
   };
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="text" onChange={this.handleChange} />
+        <input
+          type="text"
+          value={this.state.text}
+          onChange={this.handleChange}
+        />
         <input type="submit" value="Add" />
       </form>
     );
