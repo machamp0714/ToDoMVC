@@ -7,7 +7,7 @@ const Todo = ({ id, text, completed, todoToggle }) => (
     }}
     onClick={() => todoToggle(id)}
   >
-    {id}:{text}
+    {text}
   </li>
 );
 

@@ -1,10 +1,24 @@
 import { connect } from "react-redux";
 import TodoList from "../components/TodoList";
 import { todoToggle } from "../actions/index";
+import { visibilityFilters } from "../actions/index";
+
+const getVisibleTodos = (todos, filter) => {
+  switch (filter) {
+    case visibilityFilters.SHOW_ALL:
+      return todos;
+    case visibilityFilters.SHOW_ACTIVE:
+      return todos.filter((todo) => todo.completed === false);
+    case visibilityFilters.SHOW_COMPLETED:
+      return todos.filter((todo) => todo.completed === true);
+    default:
+      return todos;
+  }
+};
 
 const mapStateToProps = (state) => {
   return {
-    todos: state.todos
+    todos: getVisibleTodos(state.todos, state.visibilityFilter)
   };
 };
 
