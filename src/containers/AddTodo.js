@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { addTodo } from "../actions/index";
 
 class AddTodo extends Component {
   state = {
@@ -11,14 +13,30 @@ class AddTodo extends Component {
     });
   };
 
+  handleSubmit = (e) => {
+    this.props.addTodo(this.state.text);
+    e.preventDefault();
+  };
+
   render() {
     return (
-      <form>
-        <input type="text" />
+      <form onSubmit={this.handleSubmit}>
+        <input type="text" onChange={this.handleChange} />
         <input type="submit" value="Add" />
       </form>
     );
   }
 }
 
-export default AddTodo;
+const mapDispachToProps = (dispatch) => {
+  return {
+    addTodo: (text) => {
+      dispatch(addTodo(text));
+    }
+  };
+};
+
+export default connect(
+  null,
+  mapDispachToProps
+)(AddTodo);
