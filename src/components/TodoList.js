@@ -1,11 +1,11 @@
 import React from "react";
-import Todo from "./Todo";
+import TodoItem from "./TodoItem";
 
 const TodoList = ({ todos, todoToggle }) => {
   return (
     <ul>
       {todos.map((todo) => (
-        <Todo key={todo.id} {...todo} todoToggle={todoToggle} />
+        <TodoItem key={todo.id} {...todo} todoToggle={todoToggle} />
       ))}
     </ul>
   );
