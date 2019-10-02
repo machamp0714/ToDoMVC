@@ -6,7 +6,7 @@ import {
   DELETE_TODO
 } from "../constants/ActionTypes";
 
-let nextId = 0;
+let nextId = 1;
 
 export const addTodo = (text) => ({
   type: ADD_TODO,

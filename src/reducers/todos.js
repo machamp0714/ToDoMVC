@@ -5,7 +5,15 @@ import {
   DELETE_TODO
 } from "../constants/ActionTypes";
 
-const todos = (state = [], action) => {
+const initState = [
+  {
+    id: 0,
+    text: "Sample",
+    completed: false
+  }
+];
+
+const todos = (state = initState, action) => {
   switch (action.type) {
     case ADD_TODO:
       return [
