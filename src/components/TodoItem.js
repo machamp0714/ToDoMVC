@@ -26,6 +26,10 @@ class TodoItem extends Component {
     this.setState({ editing: false });
   };
 
+  handleClick = () => {
+    this.props.deleteTodo(this.props.id);
+  };
+
   render() {
     let element;
     const { id, text, completed, todoToggle } = this.props;
@@ -52,7 +56,7 @@ class TodoItem extends Component {
           >
             {text}
           </label>
-          <button>削除</button>
+          <button onClick={this.handleClick}>削除</button>
         </div>
       );
     }

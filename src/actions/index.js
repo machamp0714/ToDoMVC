@@ -2,7 +2,8 @@ import {
   ADD_TODO,
   EDIT_TODO,
   TODO_TOGGLE,
-  SET_FILTER
+  SET_FILTER,
+  DELETE_TODO
 } from "../constants/ActionTypes";
 
 let nextId = 0;
@@ -17,6 +18,11 @@ export const editTodo = (id, text) => ({
   type: EDIT_TODO,
   id,
   text
+});
+
+export const deleteTodo = (id) => ({
+  type: DELETE_TODO,
+  id
 });
 
 export const todoToggle = (id) => ({
