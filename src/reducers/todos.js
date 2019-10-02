@@ -1,6 +1,8 @@
+import { ADD_TODO, EDIT_TODO, TODO_TOGGLE } from "../constants/ActionTypes";
+
 const todos = (state = [], action) => {
   switch (action.type) {
-    case "ADD_TODO":
+    case ADD_TODO:
       return [
         ...state,
         {
@@ -9,10 +11,14 @@ const todos = (state = [], action) => {
           completed: false
         }
       ];
-    case "TODO_TOGGLE":
+    case TODO_TOGGLE:
       return state.map((todo) =>
         todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
       );
+    case EDIT_TODO:
+      return state.map(todo =>
+        todo.id === action.id ? {...todo, text: action.text} : todo
+      )
     default:
       return state;
   }

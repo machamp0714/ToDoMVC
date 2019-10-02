@@ -11,16 +11,32 @@ class TodoItem extends Component {
     });
   };
 
+  handleSave = (e) => {
+    if (e.which === 13) {
+      const text = e.target.value;
+      this.props.editTodo(this.props.id, text);
+
+      this.setState({ editing: false });
+    }
+  };
+
+  handleBlur = (e) => {
+    const text = e.target.value;
+    this.props.editTodo(this.props.id, text);
+    this.setState({ editing: false });
+  };
+
   render() {
     let element;
-    const { id, text, todoToggle, completed } = this.props;
+    const { id, text, completed, todoToggle } = this.props;
 
     if (this.state.editing) {
       element = (
         <input
           placeholder={text}
           onChange={this.handleChange}
-          onKeyDown={this.onSave}
+          onKeyDown={this.handleSave}
+          onBlur={this.handleBlur}
           type="text"
         />
       );
@@ -36,7 +52,7 @@ class TodoItem extends Component {
           >
             {text}
           </label>
-          <button onClick={this.onSave}>削除</button>
+          <button>削除</button>
         </div>
       );
     }
