@@ -17,11 +17,14 @@ const MainSection = ({ actions, todosCount, completedCount }) => (
       </span>
     )}
     <VisibileTodoList />
-    <Footer
-      completedCount={completedCount}
-      clearCompleted={actions.clearCompleted}
-      activeCount={todosCount - completedCount}
-    />
+
+    {!!todosCount && (
+      <Footer
+        completedCount={completedCount}
+        clearCompleted={actions.clearCompleted}
+        activeCount={todosCount - completedCount}
+      />
+    )}
   </section>
 );
 

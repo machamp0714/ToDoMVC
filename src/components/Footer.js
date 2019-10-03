@@ -29,11 +29,10 @@ const Footer = (props) => {
       <div className="count">
         <strong>{activeCount || "No"}</strong> {itemWord} left
       </div>
-      {completedCount > 0 ? (
-        <button onClick={() => clearCompleted()} className="all-completed">
-          clear completed
-        </button>
-      ) : null}
+
+      {!!completedCount && (
+        <button onClick={clearCompleted}>clear completed</button>
+      )}
     </div>
   );
 };
