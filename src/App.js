@@ -1,11 +1,11 @@
 import React from "react";
 import Header from "./containers/Header";
-import Footer from "./components/Footer";
+import MainSection from "./containers/MainSection";
 
 const App = () => (
   <div>
     <Header />
-    <Footer />
+    <MainSection />
   </div>
 );
 

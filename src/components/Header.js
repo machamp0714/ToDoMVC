@@ -1,6 +1,5 @@
 import React from "react";
 import TodoTextInput from "./TodoTextInput";
-import VisibleTodoList from "../containers/VisibleTodoList";
 
 const Header = ({ addTodo }) => (
   <div className="todo">
@@ -14,7 +13,6 @@ const Header = ({ addTodo }) => (
       }}
       placeholder="New Todo"
     />
-    <VisibleTodoList />
   </div>
 );
 
