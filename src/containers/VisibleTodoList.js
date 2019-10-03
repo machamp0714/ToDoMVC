@@ -5,7 +5,6 @@ import * as TodoActions from "../actions/index";
 import { getVisibleTodos } from "../selectors/index";
 
 const mapStateToProps = (state) => {
-  console.log(getVisibleTodos(state));
   return {
     todos: getVisibleTodos(state)
   };

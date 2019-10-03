@@ -18,9 +18,9 @@ const MainSection = ({ actions, todosCount, completedCount }) => (
     )}
     <VisibileTodoList />
     <Footer
-      todosCount={todosCount}
       completedCount={completedCount}
       clearCompleted={actions.clearCompleted}
+      activeCount={todosCount - completedCount}
     />
   </section>
 );
