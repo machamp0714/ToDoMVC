@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import VisibileTodoList from "../containers/VisibleTodoList";
 import Footer from "../components/Footer";
 
@@ -27,5 +28,11 @@ const MainSection = ({ actions, todosCount, completedCount }) => (
     )}
   </section>
 );
+
+MainSection.propTypes = {
+  actions: PropTypes.object.isRequired,
+  todosCount: PropTypes.number.isRequired,
+  completedCount: PropTypes.number.isRequired
+};
 
 export default MainSection;
