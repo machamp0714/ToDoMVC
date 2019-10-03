@@ -3,7 +3,9 @@ import {
   EDIT_TODO,
   TODO_TOGGLE,
   SET_FILTER,
-  DELETE_TODO
+  DELETE_TODO,
+  CLEAR_COMPLETED,
+  ALL_COMPLETE
 } from "../constants/ActionTypes";
 
 let nextId = 1;
@@ -33,4 +35,12 @@ export const todoToggle = (id) => ({
 export const setFilter = (filter) => ({
   type: SET_FILTER,
   filter
+});
+
+export const clearCompleted = () => ({
+  type: CLEAR_COMPLETED
+});
+
+export const allCompleteTodos = () => ({
+  type: ALL_COMPLETE
 });

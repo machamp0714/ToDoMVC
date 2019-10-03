@@ -2,7 +2,9 @@ import {
   ADD_TODO,
   EDIT_TODO,
   TODO_TOGGLE,
-  DELETE_TODO
+  DELETE_TODO,
+  CLEAR_COMPLETED,
+  ALL_COMPLETE
 } from "../constants/ActionTypes";
 
 const initState = [
@@ -34,6 +36,10 @@ const todos = (state = initState, action) => {
       );
     case DELETE_TODO:
       return state.filter((todo) => todo.id !== action.id);
+    case CLEAR_COMPLETED:
+      return state.filter((todo) => !todo.completed);
+    case ALL_COMPLETE:
+      return state.map((todo) => ({ ...todo, completed: !todo.completed }));
     default:
       return state;
   }
